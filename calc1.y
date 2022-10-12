@@ -1,6 +1,7 @@
 %{
 
 #include <math.h>
+#include <stdlib.h>
 
 #include <stdio.h>
 int yylex();
@@ -55,6 +56,9 @@ Expression:    NUMBER                        { $$=$1; }
 
 int main(void) {
  yyparse();
+}
+int yywrap(){
+return 1;
 }
 
  
