@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "complejo.c"
 
+
 #include <stdio.h>
 int yylex();
 void yyerror(char *s) {
@@ -15,11 +16,11 @@ void yyerror(char *s) {
 //tipo de atributo de los tokens.
 %union{
 double dval;
-complejo cval;
+//Complejo *cval;
 }
 
 %token  <dval> NUMBER
-%token <cval> CNUMBER
+//%token <cval> CNUMBER
 %token  PLUS    MINUS   TIMES   DIVIDE  POWER
 %token  LEFT_PARENTHESIS        RIGHT_PARENTHESIS
 %token  END
@@ -31,7 +32,7 @@ complejo cval;
 %right  POWER
 
 %type <dval> Expression
-%type <cval> exp
+//%type <cval> exp
 %start Input
 
 %%

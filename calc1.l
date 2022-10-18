@@ -7,9 +7,7 @@
 white           [ \t]+
 digit           [0-9]
 integer         {digit}+
-
-complex			'('{digit}+'+'{digit}+'i)'
->>>>>>> main
+complex			\({digit}+[+|-]{digit}+i\)
 
 %%
 
@@ -21,7 +19,7 @@ complex			'('{digit}+'+'{digit}+'i)'
 			 }
 
 {complex} {
-	printf("valor: %s",yytext);
+	printf("valor: %s\n",yytext);
 }
 
 

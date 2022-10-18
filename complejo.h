@@ -13,7 +13,9 @@ Complejo *resta(Complejo *, Complejo *);
 Complejo *multiplicar(Complejo *, Complejo *);
 Complejo *dividir(Complejo *, Complejo *);
 
-void imprimir(Complejo *c);
+void imprimirC(Complejo *c);
+//void imprimir(double *c);
+
 
 //#define YYSTYPE ComplejoAP
 
