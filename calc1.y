@@ -15,9 +15,11 @@ void yyerror(char *s) {
 //tipo de atributo de los tokens.
 %union{
 double dval;
+complejo cval;
 }
 
 %token  <dval> NUMBER
+%token <cval> CNUMBER
 %token  PLUS    MINUS   TIMES   DIVIDE  POWER
 %token  LEFT_PARENTHESIS        RIGHT_PARENTHESIS
 %token  END
@@ -29,6 +31,7 @@ double dval;
 %right  POWER
 
 %type <dval> Expression
+%type <cval> exp
 %start Input
 
 %%

@@ -55,15 +55,16 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     NUMBER = 258,                  /* NUMBER  */
-    PLUS = 259,                    /* PLUS  */
-    MINUS = 260,                   /* MINUS  */
-    TIMES = 261,                   /* TIMES  */
-    DIVIDE = 262,                  /* DIVIDE  */
-    POWER = 263,                   /* POWER  */
-    LEFT_PARENTHESIS = 264,        /* LEFT_PARENTHESIS  */
-    RIGHT_PARENTHESIS = 265,       /* RIGHT_PARENTHESIS  */
-    END = 266,                     /* END  */
-    NEG = 267                      /* NEG  */
+    CNUMBER = 259,                 /* CNUMBER  */
+    PLUS = 260,                    /* PLUS  */
+    MINUS = 261,                   /* MINUS  */
+    TIMES = 262,                   /* TIMES  */
+    DIVIDE = 263,                  /* DIVIDE  */
+    POWER = 264,                   /* POWER  */
+    LEFT_PARENTHESIS = 265,        /* LEFT_PARENTHESIS  */
+    RIGHT_PARENTHESIS = 266,       /* RIGHT_PARENTHESIS  */
+    END = 267,                     /* END  */
+    NEG = 268                      /* NEG  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -73,15 +74,16 @@ extern int yydebug;
 #define YYerror 256
 #define YYUNDEF 257
 #define NUMBER 258
-#define PLUS 259
-#define MINUS 260
-#define TIMES 261
-#define DIVIDE 262
-#define POWER 263
-#define LEFT_PARENTHESIS 264
-#define RIGHT_PARENTHESIS 265
-#define END 266
-#define NEG 267
+#define CNUMBER 259
+#define PLUS 260
+#define MINUS 261
+#define TIMES 262
+#define DIVIDE 263
+#define POWER 264
+#define LEFT_PARENTHESIS 265
+#define RIGHT_PARENTHESIS 266
+#define END 267
+#define NEG 268
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -90,8 +92,9 @@ union YYSTYPE
 #line 16 "calc1.y"
 
 double dval;
+complejo cval;
 
-#line 95 "y.tab.h"
+#line 98 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
