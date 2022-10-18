@@ -2,11 +2,10 @@
 
 struct complejo{
     double real, imaginario;
-
 };
 
 typedef struct complejo Complejo;
-typedef struct complejo *Complejo;
+//typedef struct complejo *ComplejoAP;
 
 Complejo *creacionComplejo(int real, int imaginario);
 Complejo *suma(Complejo *, Complejo *);
@@ -16,5 +15,5 @@ Complejo *dividir(Complejo *, Complejo *);
 
 void imprimir(Complejo *c);
 
-#define YYSTYPE ComplejoAP
+//#define YYSTYPE ComplejoAP
 

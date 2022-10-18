@@ -2,6 +2,7 @@
 
 #include <math.h>
 #include <stdlib.h>
+#include "complejo.c"
 
 #include <stdio.h>
 int yylex();
@@ -37,7 +38,7 @@ Input:    Line
 ;
 
 Line:    END
-| Expression END                { printf("Result: %f\n",$1); }
+| Expression END                { imprime($1); }
 ;
 
 
