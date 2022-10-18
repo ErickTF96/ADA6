@@ -7,6 +7,7 @@
 white           [ \t]+
 digit           [0-9]
 integer         {digit}+
+complex			'('{digit}+'+'{digit}+'i)'
 
 %%
 
@@ -16,6 +17,11 @@ integer         {digit}+
 			  yylval.dval=atof(yytext);
 			  return(NUMBER);
 			 }
+
+{complex} {
+	printf("valor: %s",yytext);
+}
+
 
 "+"           return(PLUS);
 "-"           return(MINUS);
