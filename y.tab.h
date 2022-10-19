@@ -1,5 +1,5 @@
 typedef union{
-double dval;
+double ComplejoAP;
 } YYSTYPE;
 #define	NUMBER	257
 #define	PLUS	258
