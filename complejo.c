@@ -12,26 +12,26 @@ Complejo *suma(Complejo *c1, Complejo *c2){
     return creacionComplejo(c1 -> real + c2 -> real, c1 -> imaginario + c2 -> imaginario);
 }
 
-void imprime(double d){
-    printf("Resultado: %f\n", d);
+/*Complejo *resta(Complejo *, Complejo *){
+
+}
+
+Complejo *multiplicar(Complejo *, Complejo *){
+
+}
+
+Complejo *dividir(Complejo *, Complejo *){
+
+}*/
+
+void imprime(double c){
+    printf("Resultado: %f\n", c);
 }
 
 void imprimirC(Complejo *c){
-    if (c->imaginario !=0){
+    if(c->imaginario != 0){
         printf("%f%+fi\n", c->real, c->imaginario);
     }else{
-        printf("Resultado: %f\n", c->real);
+        printf("%f\n", c->real);
     }
-    
 }
-// int main(){
-
-//     complejo c1 = {4,3}, c2 = {4,-3};
-//     printf("El numero complejo es: "); 
-//     imprimirComplejo(c1);
-//     printf("El numero complejo es: "); 
-//     imprimirComplejo(c2);
-//     printf("El resultado es: ");
-//     imprimirComplejo(suma(c1,c2));
-//     return 0;
-// }

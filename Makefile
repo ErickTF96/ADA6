@@ -7,5 +7,4 @@ lex.yy.c:	calc1.l
 y.tab.c: calc1.y	
 	bison -dy calc1.y
 y.tab.h: calc1.y
-	bison -dy calc1.y
-
+	bison -dy calc1.y	

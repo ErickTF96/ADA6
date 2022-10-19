@@ -2,7 +2,7 @@
 
 #include <math.h>
 #include <stdlib.h>
-#include "complejo.h"
+
 #include <stdio.h>
 #define YYSTYPE ComplejoAP
 int yylex();
@@ -14,10 +14,10 @@ void yyerror(char *s) {
 
 //tipo de atributo de los tokens.
 %union{
-double ComplejoAP;
+double dval;
 }
 
-%token  <ComplejoAP> NUMBER
+%token  <dval> NUMBER
 %token  PLUS    MINUS   TIMES   DIVIDE  POWER
 %token  LEFT_PARENTHESIS        RIGHT_PARENTHESIS
 %token  END
@@ -29,6 +29,7 @@ double ComplejoAP;
 %right  POWER
 
 %type <dval> Expression
+//%type <cval> exp
 %start Input
 
 %%
@@ -38,13 +39,13 @@ Input:    Line
 ;
 
 Line:    END
-| Expression END                { imprime($1); }
+| Expression END                { printf("Result: %f\n",$1); }
 ;
 
 
 Expression:    NUMBER                        { $$=$1; }
 
-| Expression PLUS Expression    { $$ = suma($1,$3); }
+| Expression PLUS Expression    { $$ = $1+$3; }
 | Expression MINUS Expression   { $$=$1-$3; }
 | Expression TIMES Expression   { $$=$1*$3; }
 | Expression DIVIDE Expression  { $$=$1/$3; }

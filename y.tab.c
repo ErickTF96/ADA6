@@ -20,7 +20,7 @@
 
 #include <math.h>
 #include <stdlib.h>
-#include "complejo.h"
+
 #include <stdio.h>
 #define YYSTYPE ComplejoAP
 int yylex();
@@ -31,7 +31,7 @@ void yyerror(char *s) {
 
 #line 16 "calc1.y"
 typedef union{
-double ComplejoAP;
+double dval;
 } YYSTYPE;
 #include <stdio.h>
 
@@ -96,8 +96,8 @@ static const short yyrhs[] = {    14,
 
 #if YYDEBUG != 0
 static const short yyrline[] = { 0,
-    36,    37,    40,    41,    45,    47,    48,    49,    50,    51,
-    52,    53
+    37,    38,    41,    42,    46,    48,    49,    50,    51,    52,
+    53,    54
 };
 #endif
 
@@ -703,39 +703,39 @@ yyreduce:
   switch (yyn) {
 
 case 4:
-#line 41 "calc1.y"
-{ imprime(yyvsp[-1].dval); ;
+#line 42 "calc1.y"
+{ printf("Result: %f\n",yyvsp[-1].dval); ;
     break;}
 case 5:
-#line 45 "calc1.y"
-{ yyval.dval=yyvsp[0].ComplejoAP; ;
+#line 46 "calc1.y"
+{ yyval.dval=yyvsp[0].dval; ;
     break;}
 case 6:
-#line 47 "calc1.y"
-{ yyval.dval = suma(yyvsp[-2].dval,yyvsp[0].dval); ;
+#line 48 "calc1.y"
+{ yyval.dval = yyvsp[-2].dval+yyvsp[0].dval; ;
     break;}
 case 7:
-#line 48 "calc1.y"
+#line 49 "calc1.y"
 { yyval.dval=yyvsp[-2].dval-yyvsp[0].dval; ;
     break;}
 case 8:
-#line 49 "calc1.y"
+#line 50 "calc1.y"
 { yyval.dval=yyvsp[-2].dval*yyvsp[0].dval; ;
     break;}
 case 9:
-#line 50 "calc1.y"
+#line 51 "calc1.y"
 { yyval.dval=yyvsp[-2].dval/yyvsp[0].dval; ;
     break;}
 case 10:
-#line 51 "calc1.y"
+#line 52 "calc1.y"
 { yyval.dval=-yyvsp[0].dval; ;
     break;}
 case 11:
-#line 52 "calc1.y"
+#line 53 "calc1.y"
 { yyval.dval=pow(yyvsp[-2].dval,yyvsp[0].dval); ;
     break;}
 case 12:
-#line 53 "calc1.y"
+#line 54 "calc1.y"
 { yyval.dval=yyvsp[-1].dval; ;
     break;}
 }
@@ -960,7 +960,7 @@ yyerrhandle:
     }
   return 1;
 }
-#line 57 "calc1.y"
+#line 58 "calc1.y"
 
 
 int main(void) {

@@ -7,6 +7,7 @@
 white           [ \t]+
 digit           [0-9]
 integer         {digit}+
+complex			\({digit}+[+|-]{digit}+i\)
 
 %%
 
@@ -17,6 +18,11 @@ integer         {digit}+
 			  return(NUMBER);
 			 }
 
+{complex} {
+	printf("valor: %s\n",yytext);
+}
+
+
 "+"           return(PLUS);
 "-"           return(MINUS);
 "*"           return(TIMES);
@@ -24,6 +30,6 @@ integer         {digit}+
 "^"           return(POWER);
 "("           return(LEFT_PARENTHESIS);
 ")"           return(RIGHT_PARENTHESIS);
-"\n"            return(END);
+"\n"          return(END);
 
 %%
