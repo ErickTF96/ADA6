@@ -2,10 +2,8 @@
 
 #include <math.h>
 #include <stdlib.h>
-#include "prueba.c"
-#include <stdio.h> 
-
-//#define YYSTYPE ComplejoAP
+#include <stdio.h>
+#include "complejo.h"
 
 int yylex();
 void yyerror(char *s) {
@@ -18,13 +16,11 @@ void yyerror(char *s) {
 
 %union{
     double dval;
-    struct complejo{
-        double real, imaginario;
-    }cval;
+    void *cval;
 }
 
 %token  <dval> NUMBER
-%token  <cval> CNUMBER 
+%token  <cval> CNUMBER
 %token  PLUS    MINUS   TIMES   DIVIDE  POWER
 %token  LEFT_PARENTHESIS        RIGHT_PARENTHESIS
 %token  END
@@ -47,6 +43,7 @@ Input:    Line
 
 Line:    END
 | Expression END                { printf("Result: %f\n",$1); }
+| exp   END                     { imprimeComp($1); }
 ;
 
 
@@ -61,7 +58,10 @@ Expression:    NUMBER                        { $$=$1; }
 | LEFT_PARENTHESIS Expression RIGHT_PARENTHESIS { $$=$2; }
 ;
 
-exp: CNUMBER        { $$ = $1;}
+exp:    CNUMBER     { $$ = $1; }
+
+| exp PLUS exp      { $$ = suma($1,$3); }
+;
 
 | exp PLUS exp { $$ = suma($1,$3); }
 ;

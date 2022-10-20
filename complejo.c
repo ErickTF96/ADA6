@@ -3,9 +3,9 @@
 #include "complejo.h"
 
 Complejo *creacionComplejo(double real, double imaginario){
-    Complejo *nvo = (Complejo*)malloc(sizeof(Complejo));
-    nvo->real = real;
-    nvo->imaginario = imaginario;
+    Complejo *nvo = (Complejo*) malloc(sizeof(Complejo));
+    nvo -> real = real;
+    nvo -> imaginario = imaginario;
     return nvo;
 }
 Complejo *suma(Complejo *c1, Complejo *c2){
@@ -26,6 +26,9 @@ Complejo *dividir(Complejo *, Complejo *){
 
 void imprime(double c){
     printf("Resultado: %f\n", c);
+}
+void imprimeComp(Complejo *c){
+    printf("%f%+fi\n", c->real, c->imaginario);
 }
 
 void imprimirC(Complejo *c){

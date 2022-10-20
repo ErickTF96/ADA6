@@ -383,10 +383,11 @@ char *yytext;
 #define INITIAL 0
 #line 2 "calc1.l"
 #include "y.tab.h"
+#include "complejo.c"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#line 390 "lex.yy.c"
+#line 391 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -537,10 +538,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 13 "calc1.l"
+#line 14 "calc1.l"
 
 
-#line 544 "lex.yy.c"
+#line 545 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -625,17 +626,17 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "calc1.l"
+#line 16 "calc1.l"
 { /* Ignoramos espacios en blanco */ }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 16 "calc1.l"
+#line 17 "calc1.l"
 {printf("Terminando programa\n");exit(0);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 17 "calc1.l"
+#line 18 "calc1.l"
 {
 	yylval.dval=atof(yytext);
 	return(NUMBER);
@@ -643,81 +644,72 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 22 "calc1.l"
+#line 23 "calc1.l"
 {
-    typedef struct{
-        double real, img;
-    }complejo;
-
-    double lista[10], a;
-    int i=0;
+	//printf("valor: %s\n",yytext);
+    double lista[5];
+    int i = 0;
+ 
     char delimitador[] = "( + - i ) ";
     char *token = strtok(yytext, delimitador);
     if(token != NULL){
         while(token != NULL){
-            // Sólo en la primera pasamos la cadena; en las siguientes pasamos NULL
-            printf("Token: %s\n", token);
             yylval.dval = atof(token);
             lista[i] = yylval.dval;
-            // printf("lista: %f\n",lista[i]);
             token = strtok(NULL, delimitador);
             i++;
         }
     }
-    complejo *nvo = (complejo*)malloc(sizeof(complejo));
-    nvo->real = lista[0];
-    nvo->img = lista[1];
-    return nvo;
-    // return lista[10];
-	// printf("Token: %s\n", token);
+    yylval.cval = creacionComplejo(lista[0], lista[1]);
+    return (CNUMBER);
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 51 "calc1.l"
+#line 43 "calc1.l"
 return(PLUS);
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 52 "calc1.l"
+#line 44 "calc1.l"
 return(MINUS);
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 53 "calc1.l"
+#line 45 "calc1.l"
 return(TIMES);
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 54 "calc1.l"
+#line 46 "calc1.l"
 return(DIVIDE);
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 55 "calc1.l"
+#line 47 "calc1.l"
 return(POWER);
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 56 "calc1.l"
+#line 48 "calc1.l"
 return(LEFT_PARENTHESIS);
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 57 "calc1.l"
+#line 49 "calc1.l"
 return(RIGHT_PARENTHESIS);
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 58 "calc1.l"
+#line 50 "calc1.l"
 return(END);
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 60 "calc1.l"
+#line 52 "calc1.l"
 ECHO;
 	YY_BREAK
-#line 721 "lex.yy.c"
+#line 713 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1603,4 +1595,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 60 "calc1.l"
+#line 52 "calc1.l"

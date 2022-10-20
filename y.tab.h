@@ -1,8 +1,6 @@
 typedef union{
     double dval;
-    struct complejo{
-        double real, imaginario;
-    }cval;
+    void *cval;
 } YYSTYPE;
 #define	NUMBER	257
 #define	CNUMBER	258
