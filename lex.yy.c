@@ -461,10 +461,12 @@ char *yytext;
 #line 1 "calc1.l"
 #line 2 "calc1.l"
 #include "y.tab.h"
+#include "complejo.c"
 #include <stdlib.h>
 #include <stdio.h>
-#line 467 "lex.yy.c"
-#line 468 "lex.yy.c"
+#include <string.h>
+#line 469 "lex.yy.c"
+#line 470 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -681,10 +683,10 @@ YY_DECL
 		}
 
 	{
-#line 12 "calc1.l"
+#line 14 "calc1.l"
 
 
-#line 688 "lex.yy.c"
+#line 690 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -743,76 +745,94 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 14 "calc1.l"
+#line 16 "calc1.l"
 { /* Ignoramos espacios en blanco */ }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "calc1.l"
+#line 17 "calc1.l"
 {printf("Terminando programa\n");exit(0);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 "calc1.l"
+#line 18 "calc1.l"
 {
-			  yylval.dval=atof(yytext);
-			  return(NUMBER);
-			 }
+	yylval.dval=atof(yytext);
+	return(NUMBER);
+}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 21 "calc1.l"
+#line 23 "calc1.l"
 {
-	printf("valor: %s\n",yytext);
+	//printf("valor: %s\n",yytext);
+    double lista[5];
+    int i = 0;
+ 
+    char delimitador[] = "( + - i ) ";
+    char *token = strtok(yytext, delimitador);
+    if(token != NULL){
+        while(token != NULL){
+            //printf("Token: %s\n", token);
+            yylval.dval = atof(token);
+            lista[i] = yylval.dval;
+            //printf("lista %f\n", yylval.dval);
+            token = strtok(NULL, delimitador);
+            i++;
+        }
+    }
+    yylval.cval = creacionComplejo(lista[0], lista[1]);
+    imprimeComp(yylval.cval);
+    return (CNUMBER);
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 26 "calc1.l"
+#line 46 "calc1.l"
 return(PLUS);
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 27 "calc1.l"
+#line 47 "calc1.l"
 return(MINUS);
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 28 "calc1.l"
+#line 48 "calc1.l"
 return(TIMES);
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 29 "calc1.l"
+#line 49 "calc1.l"
 return(DIVIDE);
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 30 "calc1.l"
+#line 50 "calc1.l"
 return(POWER);
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 31 "calc1.l"
+#line 51 "calc1.l"
 return(LEFT_PARENTHESIS);
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 32 "calc1.l"
+#line 52 "calc1.l"
 return(RIGHT_PARENTHESIS);
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 33 "calc1.l"
+#line 53 "calc1.l"
 return(END);
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 35 "calc1.l"
+#line 55 "calc1.l"
 ECHO;
 	YY_BREAK
-#line 816 "lex.yy.c"
+#line 836 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1817,5 +1837,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 35 "calc1.l"
+#line 55 "calc1.l"
 
