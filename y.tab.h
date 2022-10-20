@@ -1,16 +1,20 @@
 typedef union{
-double dval;
+    double dval;
+    struct complejo{
+        double real, imaginario;
+    }cval;
 } YYSTYPE;
 #define	NUMBER	257
-#define	PLUS	258
-#define	MINUS	259
-#define	TIMES	260
-#define	DIVIDE	261
-#define	POWER	262
-#define	LEFT_PARENTHESIS	263
-#define	RIGHT_PARENTHESIS	264
-#define	END	265
-#define	NEG	266
+#define	CNUMBER	258
+#define	PLUS	259
+#define	MINUS	260
+#define	TIMES	261
+#define	DIVIDE	262
+#define	POWER	263
+#define	LEFT_PARENTHESIS	264
+#define	RIGHT_PARENTHESIS	265
+#define	END	266
+#define	NEG	267
 
 
 extern YYSTYPE yylval;

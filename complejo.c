@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "complejo.h"
 
-Complejo *creacionComplejo(int real, int imaginario){
-    Complejo *nvo = (Complejo*) malloc(sizeof(Complejo));
-    nvo -> real = real;
-    nvo -> imaginario = imaginario;
+Complejo *creacionComplejo(double real, double imaginario){
+    Complejo *nvo = (Complejo*)malloc(sizeof(Complejo));
+    nvo->real = real;
+    nvo->imaginario = imaginario;
     return nvo;
 }
 Complejo *suma(Complejo *c1, Complejo *c2){
