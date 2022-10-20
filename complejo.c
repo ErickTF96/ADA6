@@ -12,10 +12,10 @@ Complejo *suma(Complejo *c1, Complejo *c2){
     return creacionComplejo(c1 -> real + c2 -> real, c1 -> imaginario + c2 -> imaginario);
 }
 
-/*Complejo *resta(Complejo *, Complejo *){
-
+Complejo *resta(Complejo *c1, Complejo *c2){
+    return creacionComplejo(c1 -> real - c2 -> real, c1 -> imaginario - c2 -> imaginario);
 }
-
+/*
 Complejo *multiplicar(Complejo *, Complejo *){
 
 }

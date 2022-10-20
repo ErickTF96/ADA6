@@ -42,8 +42,8 @@ Input:    Line
 ;
 
 Line:    END
-| Expression END                { printf("Result: %f\n",$1); }
-| exp   END                     { imprimeComp($1); }
+| Expression END                { imprime($1); }
+| exp   END                     { imprimirC($1); }
 ;
 
 
@@ -61,9 +61,7 @@ Expression:    NUMBER                        { $$=$1; }
 exp:    CNUMBER     { $$ = $1; }
 
 | exp PLUS exp      { $$ = suma($1,$3); }
-;
-
-| exp PLUS exp { $$ = suma($1,$3); }
+| exp MINUS exp     { $$ = resta($1,$3); }
 ;
 %%
 

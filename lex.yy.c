@@ -660,56 +660,58 @@ YY_RULE_SETUP
             i++;
         }
     }
+    printf("lista: %.2f\n", lista[0]);
+    printf("lista: %.2f\n", lista[1]);
     yylval.cval = creacionComplejo(lista[0], lista[1]);
     return (CNUMBER);
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 43 "calc1.l"
+#line 45 "calc1.l"
 return(PLUS);
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 44 "calc1.l"
+#line 46 "calc1.l"
 return(MINUS);
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 45 "calc1.l"
+#line 47 "calc1.l"
 return(TIMES);
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 46 "calc1.l"
+#line 48 "calc1.l"
 return(DIVIDE);
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 47 "calc1.l"
+#line 49 "calc1.l"
 return(POWER);
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 48 "calc1.l"
+#line 50 "calc1.l"
 return(LEFT_PARENTHESIS);
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 49 "calc1.l"
+#line 51 "calc1.l"
 return(RIGHT_PARENTHESIS);
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 50 "calc1.l"
+#line 52 "calc1.l"
 return(END);
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 52 "calc1.l"
+#line 54 "calc1.l"
 ECHO;
 	YY_BREAK
-#line 713 "lex.yy.c"
+#line 715 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1595,4 +1597,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 52 "calc1.l"
+#line 54 "calc1.l"

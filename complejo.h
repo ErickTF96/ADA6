@@ -13,7 +13,7 @@ Complejo *resta(Complejo *, Complejo *);
 Complejo *multiplicar(Complejo *, Complejo *);
 Complejo *dividir(Complejo *, Complejo *);
 
-void imprimir(Complejo *c);
+void imprimirC(Complejo *c);
 void imprime(double c);
 void imprimeComp(Complejo *c);
 

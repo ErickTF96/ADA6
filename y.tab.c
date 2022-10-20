@@ -45,7 +45,7 @@ typedef union{
 
 
 
-#define	YYFINAL		29
+#define	YYFINAL		31
 #define	YYFLAG		-32768
 #define	YYNTBASE	14
 
@@ -92,7 +92,7 @@ static const short yyrhs[] = {    15,
     12,     0,     3,     0,    16,     5,    16,     0,    16,     6,
     16,     0,    16,     7,    16,     0,    16,     8,    16,     0,
      6,    16,     0,    16,     9,    16,     0,    10,    16,    11,
-     0,     4,     0,    17,     5,    17,     0,    17,     5,    17,
+     0,     4,     0,    17,     5,    17,     0,    17,     6,    17,
      0
 };
 
@@ -101,7 +101,7 @@ static const short yyrhs[] = {    15,
 #if YYDEBUG != 0
 static const short yyrline[] = { 0,
     40,    41,    44,    45,    46,    50,    52,    53,    54,    55,
-    56,    57,    58,    61,    63,    66
+    56,    57,    58,    61,    63,    64
 };
 #endif
 
@@ -126,8 +126,9 @@ static const short yyr2[] = {     0,
 
 static const short yydefact[] = {     0,
      6,    14,     0,     0,     3,     0,     1,     0,     0,    11,
-     0,     2,     0,     0,     0,     0,     0,     4,     0,     5,
-    13,     7,     8,     9,    10,    12,    15,     0,     0
+     0,     2,     0,     0,     0,     0,     0,     4,     0,     0,
+     5,    13,     7,     8,     9,    10,    12,    15,    16,     0,
+     0
 };
 
 static const short yydefgoto[] = {     6,
@@ -135,33 +136,36 @@ static const short yydefgoto[] = {     6,
 };
 
 static const short yypact[] = {    20,
--32768,-32768,    -1,    -1,-32768,    15,-32768,    28,    17,    -6,
-    36,-32768,    -1,    -1,    -1,    -1,    -1,-32768,     0,-32768,
--32768,    41,    41,    -6,    -6,    -6,-32768,     6,-32768
+-32768,-32768,    -1,    -1,-32768,    15,-32768,    28,    33,    -2,
+    41,-32768,    -1,    -1,    -1,    -1,    -1,-32768,     2,     2,
+-32768,-32768,    34,    34,    -2,    -2,    -2,-32768,-32768,     8,
+-32768
 };
 
 static const short yypgoto[] = {-32768,
-     1,    -3,   -11
+    10,    -3,   -16
 };
 
 
-#define	YYLAST		50
+#define	YYLAST		52
 
 
 static const short yytable[] = {    10,
-    11,     1,    17,     2,     3,    29,    12,    27,     4,    22,
-    23,    24,    25,    26,    28,     0,     0,     1,     2,     0,
-     3,    19,     1,     2,     4,     3,     5,     0,    20,     4,
-     0,     5,    13,    14,    15,    16,    17,     0,     0,    18,
-    13,    14,    15,    16,    17,     0,    21,    15,    16,    17
+    11,     1,    28,    29,     3,     2,    17,    31,     4,    23,
+    24,    25,    26,    27,    30,    12,     0,     1,     2,     0,
+     3,     0,     1,     2,     4,     3,     5,     0,     0,     4,
+     0,     5,    13,    14,    15,    16,    17,    19,    20,    18,
+    15,    16,    17,     0,    21,    13,    14,    15,    16,    17,
+     0,    22
 };
 
 static const short yycheck[] = {     3,
-     4,     3,     9,     4,     6,     0,     6,    19,    10,    13,
-    14,    15,    16,    17,     0,    -1,    -1,     3,     4,    -1,
-     6,     5,     3,     4,    10,     6,    12,    -1,    12,    10,
-    -1,    12,     5,     6,     7,     8,     9,    -1,    -1,    12,
-     5,     6,     7,     8,     9,    -1,    11,     7,     8,     9
+     4,     3,    19,    20,     6,     4,     9,     0,    10,    13,
+    14,    15,    16,    17,     0,     6,    -1,     3,     4,    -1,
+     6,    -1,     3,     4,    10,     6,    12,    -1,    -1,    10,
+    -1,    12,     5,     6,     7,     8,     9,     5,     6,    12,
+     7,     8,     9,    -1,    12,     5,     6,     7,     8,     9,
+    -1,    11
 };
 /* -*-C-*-  Note some compilers choke on comments on `#line' lines.  */
 #line 3 "/usr/local/share/bison.simple"
@@ -708,11 +712,11 @@ yyreduce:
 
 case 4:
 #line 45 "calc1.y"
-{ printf("Result: %f\n",yyvsp[-1].dval); ;
+{ imprime(yyvsp[-1].dval); ;
     break;}
 case 5:
 #line 46 "calc1.y"
-{ imprimeComp(yyvsp[-1].cval); ;
+{ imprimirC(yyvsp[-1].cval); ;
     break;}
 case 6:
 #line 50 "calc1.y"
@@ -755,8 +759,8 @@ case 15:
 { yyval.cval = suma(yyvsp[-2].cval,yyvsp[0].cval); ;
     break;}
 case 16:
-#line 66 "calc1.y"
-{ yyval.cval = suma(yyvsp[-2].cval,yyvsp[0].cval); ;
+#line 64 "calc1.y"
+{ yyval.cval = resta(yyvsp[-2].cval,yyvsp[0].cval); ;
     break;}
 }
    /* the action file gets copied in in place of this dollarsign */
@@ -980,7 +984,7 @@ yyerrhandle:
     }
   return 1;
 }
-#line 68 "calc1.y"
+#line 66 "calc1.y"
 
 
 int main(void) {
