@@ -284,12 +284,19 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 
 #define YY_NUM_RULES 13
 #define YY_END_OF_BUFFER 14
-static yyconst short int yy_accept[32] =
+/* This struct is not used in this scanner,
+   but its presence is necessary. */
+struct yy_trans_info
+	{
+	flex_int32_t yy_verify;
+	flex_int32_t yy_nxt;
+	};
+static const flex_int16_t yy_accept[34] =
     {   0,
         0,    0,   14,   13,    1,   12,   10,   11,    7,    5,
-        6,    8,    3,    9,   13,   13,   13,    1,    0,    3,
-        0,    0,    0,    0,    2,    0,    0,    0,    0,    4,
-        0
+        6,    8,    3,    9,   13,   13,   13,    1,    0,    0,
+        3,    0,    0,    0,    0,    0,    2,    0,    0,    0,
+        0,    4,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -330,42 +337,42 @@ static yyconst int yy_meta[21] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    2
     } ;
 
-static yyconst short int yy_base[33] =
+static const flex_int16_t yy_base[35] =
     {   0,
-        0,    0,   40,   41,   37,   41,   28,   41,   41,   41,
-       41,   41,   27,   41,   17,   17,   17,   31,   22,   21,
-       17,   15,   14,   17,   41,   10,    8,   11,   18,   41,
-       41,   20
+        0,    0,   43,   44,   40,   44,   13,   44,   44,   44,
+       44,   44,   31,   44,   21,   21,   21,   35,   26,   25,
+       24,   20,   18,   17,   20,   19,   44,   12,   11,   12,
+       20,   44,   44,   22
     } ;
 
-static yyconst short int yy_def[33] =
+static const flex_int16_t yy_def[35] =
     {   0,
-       31,    1,   31,   31,   31,   31,   31,   31,   31,   31,
-       31,   31,   31,   31,   31,   31,   31,   31,   32,   31,
-       31,   31,   31,   31,   31,   31,   31,   31,   31,   31,
-        0,   31
+       33,    1,   33,   33,   33,   33,   33,   33,   33,   33,
+       33,   33,   33,   33,   33,   33,   33,   33,   33,   34,
+       33,   33,   33,   33,   34,   33,   33,   33,   33,   33,
+       33,   33,    0,   33
     } ;
 
-static yyconst short int yy_nxt[62] =
+static const flex_int16_t yy_nxt[65] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
        14,   15,   16,    4,   17,    4,    4,    4,    4,    4,
-       28,   24,   30,   25,   29,   25,   28,   27,   26,   25,
-       20,   19,   18,   23,   22,   21,   20,   19,   18,   31,
-        3,   31,   31,   31,   31,   31,   31,   31,   31,   31,
-       31,   31,   31,   31,   31,   31,   31,   31,   31,   31,
-       31
+       19,   30,   20,   26,   32,   31,   27,   27,   30,   25,
+       29,   28,   27,   21,   20,   25,   18,   24,   23,   22,
+       21,   18,   33,    3,   33,   33,   33,   33,   33,   33,
+       33,   33,   33,   33,   33,   33,   33,   33,   33,   33,
+       33,   33,   33,   33
     } ;
 
-static yyconst short int yy_chk[62] =
+static const flex_int16_t yy_chk[65] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-       28,   32,   29,   27,   28,   26,   24,   23,   22,   21,
-       20,   19,   18,   17,   16,   15,   13,    7,    5,    3,
-       31,   31,   31,   31,   31,   31,   31,   31,   31,   31,
-       31,   31,   31,   31,   31,   31,   31,   31,   31,   31,
-       31
+        7,   30,    7,   34,   31,   30,   29,   28,   26,   25,
+       24,   23,   22,   21,   20,   19,   18,   17,   16,   15,
+       13,    5,    3,   33,   33,   33,   33,   33,   33,   33,
+       33,   33,   33,   33,   33,   33,   33,   33,   33,   33,
+       33,   33,   33,   33
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -415,45 +422,11 @@ static int yy_flex_strlen YY_PROTO(( yyconst char * ));
 
 #ifndef YY_NO_INPUT
 #ifdef __cplusplus
-static int yyinput YY_PROTO(( void ));
+static int yyinput ( void );
 #else
-static int input YY_PROTO(( void ));
-#endif
+static int input ( void );
 #endif
 
-#if YY_STACK_USED
-static int yy_start_stack_ptr = 0;
-static int yy_start_stack_depth = 0;
-static int *yy_start_stack = 0;
-#ifndef YY_NO_PUSH_STATE
-static void yy_push_state YY_PROTO(( int new_state ));
-#endif
-#ifndef YY_NO_POP_STATE
-static void yy_pop_state YY_PROTO(( void ));
-#endif
-#ifndef YY_NO_TOP_STATE
-static int yy_top_state YY_PROTO(( void ));
-#endif
-
-#else
-#define YY_NO_PUSH_STATE 1
-#define YY_NO_POP_STATE 1
-#define YY_NO_TOP_STATE 1
-#endif
-
-#ifdef YY_MALLOC_DECL
-YY_MALLOC_DECL
-#else
-#if __STDC__
-#ifndef __cplusplus
-#include <stdlib.h>
-#endif
-#else
-/* Just try to get by without declaring the routines.  This will fail
- * miserably on non-ANSI systems for which sizeof(size_t) != sizeof(int)
- * or sizeof(void*) != sizeof(int).
- */
-#endif
 #endif
 
 /* Amount of stuff to slurp up with each read. */
@@ -592,13 +565,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 32 )
-					yy_c = yy_meta[(unsigned int) yy_c];
+				if ( yy_current_state >= 34 )
+					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 41 );
+		while ( yy_base[yy_current_state] != 44 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -646,11 +619,11 @@ case 4:
 YY_RULE_SETUP
 #line 23 "calc1.l"
 {
-	//printf("valor: %s\n",yytext);
+	
     double lista[5];
     int i = 0;
  
-    char delimitador[] = "( + - i ) ";
+    char delimitador[] = "( + - i )";
     char *token = strtok(yytext, delimitador);
     if(token != NULL){
         while(token != NULL){
@@ -709,7 +682,7 @@ YY_RULE_SETUP
 #line 52 "calc1.l"
 ECHO;
 	YY_BREAK
-#line 713 "lex.yy.c"
+#line 833 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1001,8 +974,8 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 32 )
-				yy_c = yy_meta[(unsigned int) yy_c];
+			if ( yy_current_state >= 34 )
+				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 		}
@@ -1036,11 +1009,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 32 )
-			yy_c = yy_meta[(unsigned int) yy_c];
+		if ( yy_current_state >= 34 )
+			yy_c = yy_meta[yy_c];
 		}
-	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 31);
+	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
+	yy_is_jam = (yy_current_state == 33);
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1161,21 +1134,21 @@ static int input()
 
 
 	return c;
-	}
+}
+#endif	/* ifndef YY_NO_INPUT */
 
-
-#ifdef YY_USE_PROTOS
-void yyrestart( FILE *input_file )
-#else
-void yyrestart( input_file )
-FILE *input_file;
-#endif
-	{
-	if ( ! yy_current_buffer )
-		yy_current_buffer = yy_create_buffer( yyin, YY_BUF_SIZE );
-
-	yy_init_buffer( yy_current_buffer, input_file );
-	yy_load_buffer_state();
+/** Immediately switch to a different input stream.
+ * @param input_file A readable stream.
+ * 
+ * @note This function does not reset the start condition to @c INITIAL .
+ */
+    void yyrestart  (FILE * input_file )
+{
+    
+	if ( ! YY_CURRENT_BUFFER ){
+        yyensure_buffer_stack ();
+		YY_CURRENT_BUFFER_LVALUE =
+            yy_create_buffer( yyin, YY_BUF_SIZE );
 	}
 
 
@@ -1331,20 +1304,116 @@ YY_BUFFER_STATE b;
 	b->yy_at_bol = 1;
 	b->yy_buffer_status = YY_BUFFER_NEW;
 
-	if ( b == yy_current_buffer )
-		yy_load_buffer_state();
+	if ( b == YY_CURRENT_BUFFER )
+		yy_load_buffer_state(  );
+}
+
+/** Pushes the new state onto the stack. The new state becomes
+ *  the current state. This function will allocate the stack
+ *  if necessary.
+ *  @param new_buffer The new state.
+ *  
+ */
+void yypush_buffer_state (YY_BUFFER_STATE new_buffer )
+{
+    	if (new_buffer == NULL)
+		return;
+
+	yyensure_buffer_stack();
+
+	/* This block is copied from yy_switch_to_buffer. */
+	if ( YY_CURRENT_BUFFER )
+		{
+		/* Flush out information for old buffer. */
+		*(yy_c_buf_p) = (yy_hold_char);
+		YY_CURRENT_BUFFER_LVALUE->yy_buf_pos = (yy_c_buf_p);
+		YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
+		}
+
+	/* Only push if top exists. Otherwise, replace top. */
+	if (YY_CURRENT_BUFFER)
+		(yy_buffer_stack_top)++;
+	YY_CURRENT_BUFFER_LVALUE = new_buffer;
+
+	/* copied from yy_switch_to_buffer. */
+	yy_load_buffer_state(  );
+	(yy_did_buffer_switch_on_eof) = 1;
+}
+
+/** Removes and deletes the top of the stack, if present.
+ *  The next element becomes the new top.
+ *  
+ */
+void yypop_buffer_state (void)
+{
+    	if (!YY_CURRENT_BUFFER)
+		return;
+
+	yy_delete_buffer(YY_CURRENT_BUFFER );
+	YY_CURRENT_BUFFER_LVALUE = NULL;
+	if ((yy_buffer_stack_top) > 0)
+		--(yy_buffer_stack_top);
+
+	if (YY_CURRENT_BUFFER) {
+		yy_load_buffer_state(  );
+		(yy_did_buffer_switch_on_eof) = 1;
+	}
+}
+
+/* Allocates the stack if it does not exist.
+ *  Guarantees space for at least one push.
+ */
+static void yyensure_buffer_stack (void)
+{
+	yy_size_t num_to_alloc;
+    
+	if (!(yy_buffer_stack)) {
+
+		/* First allocation is just for 2 elements, since we don't know if this
+		 * scanner will even need a stack. We use 2 instead of 1 to avoid an
+		 * immediate realloc on the next call.
+         */
+      num_to_alloc = 1; /* After all that talk, this was set to 1 anyways... */
+		(yy_buffer_stack) = (struct yy_buffer_state**)yyalloc
+								(num_to_alloc * sizeof(struct yy_buffer_state*)
+								);
+		if ( ! (yy_buffer_stack) )
+			YY_FATAL_ERROR( "out of dynamic memory in yyensure_buffer_stack()" );
+
+		memset((yy_buffer_stack), 0, num_to_alloc * sizeof(struct yy_buffer_state*));
+
+		(yy_buffer_stack_max) = num_to_alloc;
+		(yy_buffer_stack_top) = 0;
+		return;
 	}
 
+	if ((yy_buffer_stack_top) >= ((yy_buffer_stack_max)) - 1){
 
-#ifndef YY_NO_SCAN_BUFFER
-#ifdef YY_USE_PROTOS
-YY_BUFFER_STATE yy_scan_buffer( char *base, yy_size_t size )
-#else
-YY_BUFFER_STATE yy_scan_buffer( base, size )
-char *base;
-yy_size_t size;
-#endif
-	{
+		/* Increase the buffer to prepare for a possible push. */
+		yy_size_t grow_size = 8 /* arbitrary grow size */;
+
+		num_to_alloc = (yy_buffer_stack_max) + grow_size;
+		(yy_buffer_stack) = (struct yy_buffer_state**)yyrealloc
+								((yy_buffer_stack),
+								num_to_alloc * sizeof(struct yy_buffer_state*)
+								);
+		if ( ! (yy_buffer_stack) )
+			YY_FATAL_ERROR( "out of dynamic memory in yyensure_buffer_stack()" );
+
+		/* zero only the new slots.*/
+		memset((yy_buffer_stack) + (yy_buffer_stack_max), 0, grow_size * sizeof(struct yy_buffer_state*));
+		(yy_buffer_stack_max) = num_to_alloc;
+	}
+}
+
+/** Setup the input buffer state to scan directly from a user-specified character buffer.
+ * @param base the character buffer
+ * @param size the size in bytes of the character buffer
+ * 
+ * @return the newly allocated buffer state object.
+ */
+YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )
+{
 	YY_BUFFER_STATE b;
 
 	if ( size < 2 ||
@@ -1370,36 +1439,31 @@ yy_size_t size;
 	yy_switch_to_buffer( b );
 
 	return b;
-	}
-#endif
+}
 
+/** Setup the input buffer state to scan a string. The next call to yylex() will
+ * scan from a @e copy of @a str.
+ * @param yystr a NUL-terminated string to scan
+ * 
+ * @return the newly allocated buffer state object.
+ * @note If you want to scan bytes that may contain NUL values, then use
+ *       yy_scan_bytes() instead.
+ */
+YY_BUFFER_STATE yy_scan_string (const char * yystr )
+{
+    
+	return yy_scan_bytes( yystr, (int) strlen(yystr) );
+}
 
-#ifndef YY_NO_SCAN_STRING
-#ifdef YY_USE_PROTOS
-YY_BUFFER_STATE yy_scan_string( yyconst char *yy_str )
-#else
-YY_BUFFER_STATE yy_scan_string( yy_str )
-yyconst char *yy_str;
-#endif
-	{
-	int len;
-	for ( len = 0; yy_str[len]; ++len )
-		;
-
-	return yy_scan_bytes( yy_str, len );
-	}
-#endif
-
-
-#ifndef YY_NO_SCAN_BYTES
-#ifdef YY_USE_PROTOS
-YY_BUFFER_STATE yy_scan_bytes( yyconst char *bytes, int len )
-#else
-YY_BUFFER_STATE yy_scan_bytes( bytes, len )
-yyconst char *bytes;
-int len;
-#endif
-	{
+/** Setup the input buffer state to scan the given bytes. The next call to yylex() will
+ * scan from a @e copy of @a bytes.
+ * @param yybytes the byte buffer to scan
+ * @param _yybytes_len the number of bytes in the buffer pointed to by @a bytes.
+ * 
+ * @return the newly allocated buffer state object.
+ */
+YY_BUFFER_STATE yy_scan_bytes  (const char * yybytes, int  _yybytes_len )
+{
 	YY_BUFFER_STATE b;
 	char *buf;
 	yy_size_t n;
@@ -1426,24 +1490,45 @@ int len;
 	b->yy_is_our_buffer = 1;
 
 	return b;
-	}
+}
+
+#ifndef YY_EXIT_FAILURE
+#define YY_EXIT_FAILURE 2
 #endif
 
+static void yynoreturn yy_fatal_error (const char* msg )
+{
+			fprintf( stderr, "%s\n", msg );
+	exit( YY_EXIT_FAILURE );
+}
 
-#ifndef YY_NO_PUSH_STATE
-#ifdef YY_USE_PROTOS
-static void yy_push_state( int new_state )
-#else
-static void yy_push_state( new_state )
-int new_state;
-#endif
-	{
-	if ( yy_start_stack_ptr >= yy_start_stack_depth )
-		{
-		yy_size_t new_size;
+/* Redefine yyless() so it works in section 3 code. */
 
-		yy_start_stack_depth += YY_START_STACK_INCR;
-		new_size = yy_start_stack_depth * sizeof( int );
+#undef yyless
+#define yyless(n) \
+	do \
+		{ \
+		/* Undo effects of setting up yytext. */ \
+        int yyless_macro_arg = (n); \
+        YY_LESS_LINENO(yyless_macro_arg);\
+		yytext[yyleng] = (yy_hold_char); \
+		(yy_c_buf_p) = yytext + yyless_macro_arg; \
+		(yy_hold_char) = *(yy_c_buf_p); \
+		*(yy_c_buf_p) = '\0'; \
+		yyleng = yyless_macro_arg; \
+		} \
+	while ( 0 )
+
+/* Accessor  methods (get/set functions) to struct members. */
+
+/** Get the current line number.
+ * 
+ */
+int yyget_lineno  (void)
+{
+    
+    return yylineno;
+}
 
 		if ( ! yy_start_stack )
 			yy_start_stack = (int *) yy_flex_alloc( new_size );
@@ -1588,11 +1673,7 @@ void *ptr;
 	free( ptr );
 	}
 
-#if YY_MAIN
-int main()
-	{
-	yylex();
-	return 0;
-	}
-#endif
+#define YYTABLES_NAME "yytables"
+
 #line 52 "calc1.l"
+

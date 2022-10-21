@@ -9,7 +9,7 @@
 white           [ \t]+
 digit           [0-9]
 integer         {digit}+
-complex			\({digit}+[+|-]{digit}+\i\)
+complex			\(([\-]{integer}|{integer})[+|-]{integer}\i\)
 
 %%
 
@@ -21,11 +21,11 @@ complex			\({digit}+[+|-]{digit}+\i\)
 }
 
 {complex} {
-	//printf("valor: %s\n",yytext);
+	
     double lista[5];
     int i = 0;
  
-    char delimitador[] = "( + - i ) ";
+    char delimitador[] = "( + - i )";
     char *token = strtok(yytext, delimitador);
     if(token != NULL){
         while(token != NULL){
