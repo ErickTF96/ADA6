@@ -9,7 +9,7 @@
 white           [ \t]+
 digit           [0-9]
 integer         {digit}+
-complex			\({digit}+[+|-]{digit}+\i\)
+complex			\(([\-]{integer}|{integer})[+|-]{integer}\i\)
 
 %%
 
@@ -21,24 +21,21 @@ complex			\({digit}+[+|-]{digit}+\i\)
 }
 
 {complex} {
-	//printf("valor: %s\n",yytext);
+	
     double lista[5];
     int i = 0;
  
-    char delimitador[] = "( + - i ) ";
+    char delimitador[] = "( + - i )";
     char *token = strtok(yytext, delimitador);
     if(token != NULL){
         while(token != NULL){
-            //printf("Token: %s\n", token);
             yylval.dval = atof(token);
             lista[i] = yylval.dval;
-            //printf("lista %f\n", yylval.dval);
             token = strtok(NULL, delimitador);
             i++;
         }
     }
     yylval.cval = creacionComplejo(lista[0], lista[1]);
-    imprimeComp(yylval.cval);
     return (CNUMBER);
 }
 

@@ -57,9 +57,10 @@ Expression:    NUMBER                        { $$=$1; }
 | LEFT_PARENTHESIS Expression RIGHT_PARENTHESIS { $$=$2; }
 ;
 
-exp:    CNUMBER     { imprimeComp($1); $$ = $1; }
+exp:    CNUMBER     { $$ = $1; }
 
 | exp PLUS exp      { $$ = suma($1,$3); }
+| exp DIVIDE exp    { $$ = dividir($1,$3); }
 ;
 
 %%
