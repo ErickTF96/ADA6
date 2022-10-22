@@ -4,12 +4,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
+void RmWs(char* str);
 %}
 
 white           [ \t]+
 digit           [0-9]
 integer         {digit}+
-complex			\(([\-]{integer}|{integer})[+|-]{integer}\i\)
+complex			\([-]*{integer}[+|-]{integer}\i\)
 
 %%
 
@@ -21,23 +23,59 @@ complex			\(([\-]{integer}|{integer})[+|-]{integer}\i\)
 }
 
 {complex} {
-	
-    double lista[5];
-    int i = 0;
- 
-    char delimitador[] = "( + i )";
-    char *token = strtok(yytext, delimitador);
 
-    if(token != NULL){
-        while(token != NULL){
-            yylval.dval = atof(token);
-            lista[i] = yylval.dval;
-            token = strtok(NULL, delimitador);
-            i++;
+    double lista[5];
+    int i = 0, count = 0, j = 0;
+
+    char delimitador[] = "( + i )";
+    char delimitador2[] = " - ";
+    char *token = strtok(yytext, delimitador);
+    int largo = strlen(yytext);
+    for(int k = 0; k < largo; k++){
+        if(yytext[k] == '-'){
+            count = k-1;
+            j++;
         }
     }
-    printf("lista: %.2f\n", lista[0]);
-    printf("lista: %.2f\n", lista[1]);
+    if(token != NULL){
+        while(token != NULL){
+            if (j == 2){
+                token = strtok(token, delimitador2);
+                while(token != NULL){
+                    yylval.dval = atof(token);
+                    lista[i] = yylval.dval*-1;
+                    token = strtok(NULL, delimitador);
+                    i++;
+                }
+            }else if(j == 1 && count == 0){
+                while(token != NULL){
+                    yylval.dval = atof(token);
+                    lista[i] = yylval.dval;
+                    token = strtok(NULL, delimitador);
+                    i++;
+                }
+            }else if (token[i+count] == '-'){
+                token = strtok(token, delimitador2);
+                while(token != NULL){
+                    yylval.dval = atof(token);
+                    lista[i] = yylval.dval;
+                    token = strtok(NULL, delimitador);
+                    i++;
+                }
+                lista[1] = lista[1]*-1;
+            }
+            else{
+                while(token != NULL){
+                    yylval.dval = atof(token);
+                    lista[i] = yylval.dval;
+                    token = strtok(NULL, delimitador);
+                    i++;
+                }
+            }
+        }
+    }
+    // printf("lista: %.2f\n", lista[0]);
+    // printf("lista: %.2f\n", lista[1]);
     yylval.cval = creacionComplejo(lista[0], lista[1]);
     return (CNUMBER);
 }
