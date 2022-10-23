@@ -1198,37 +1198,37 @@ yyreduce:
 
   case 9: /* Expression: Expression MINUS Expression  */
 #line 53 "calc1.y"
-                                { (yyval.dval)=(yyvsp[-2].dval)-(yyvsp[0].dval); }
+                                { (yyval.dval) = (yyvsp[-2].dval)-(yyvsp[0].dval); }
 #line 1203 "y.tab.c"
     break;
 
   case 10: /* Expression: Expression TIMES Expression  */
 #line 54 "calc1.y"
-                                { (yyval.dval)=(yyvsp[-2].dval)*(yyvsp[0].dval); }
+                                { (yyval.dval) = (yyvsp[-2].dval)*(yyvsp[0].dval); }
 #line 1209 "y.tab.c"
     break;
 
   case 11: /* Expression: Expression DIVIDE Expression  */
 #line 55 "calc1.y"
-                                { (yyval.dval)=(yyvsp[-2].dval)/(yyvsp[0].dval); }
+                                { (yyval.dval) = (yyvsp[-2].dval)/(yyvsp[0].dval); }
 #line 1215 "y.tab.c"
     break;
 
   case 12: /* Expression: MINUS Expression  */
 #line 56 "calc1.y"
-                                { (yyval.dval)=-(yyvsp[0].dval); }
+                                { (yyval.dval) = -(yyvsp[0].dval); }
 #line 1221 "y.tab.c"
     break;
 
   case 13: /* Expression: Expression POWER Expression  */
 #line 57 "calc1.y"
-                                { (yyval.dval)=pow((yyvsp[-2].dval),(yyvsp[0].dval)); }
+                                { (yyval.dval) = pow((yyvsp[-2].dval),(yyvsp[0].dval)); }
 #line 1227 "y.tab.c"
     break;
 
   case 14: /* Expression: LEFT_PARENTHESIS Expression RIGHT_PARENTHESIS  */
 #line 58 "calc1.y"
-                                                { (yyval.dval)=(yyvsp[-1].dval); }
+                                                { (yyval.dval) = (yyvsp[-1].dval); }
 #line 1233 "y.tab.c"
     break;
 
