@@ -13,7 +13,7 @@ Complejo *suma(Complejo *c1, Complejo *c2){
 }
 
 Complejo *resta(Complejo *c1, Complejo *c2){
-    return creacionComplejo(c1 -> real -c2 -> real, c1 -> imaginario + c2 -> imaginario);  
+    return creacionComplejo(c1 -> real - c2 -> real, c1 -> imaginario - c2 -> imaginario);  
 }
 
 Complejo *multiplicar(Complejo *c1, Complejo *c2){
@@ -28,10 +28,7 @@ Complejo *dividir(Complejo *c1, Complejo *c2){
 }
 
 void imprime(double c){
-    printf("Resultado: %f\n", c);
-}
-void imprimeComp(Complejo *c){
-    printf("%.2f%+.2fi\n", c->real, c->imaginario);
+    printf("Resultado: %.3f\n", c);
 }
 
 void imprimirC(Complejo *c){

@@ -15,8 +15,6 @@ Complejo *dividir(Complejo *, Complejo *);
 
 void imprimirC(Complejo *c);
 void imprime(double c);
-void imprimeComp(Complejo *c);
-
 
 // #define YYSTYPE ComplejoAP
 

@@ -74,8 +74,6 @@ complex			\([-]*{integer}[+|-]{integer}\i\)
             }
         }
     }
-    // printf("lista: %.2f\n", lista[0]);
-    // printf("lista: %.2f\n", lista[1]);
     yylval.cval = creacionComplejo(lista[0], lista[1]);
     return (CNUMBER);
 }
